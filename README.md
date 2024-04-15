@@ -23,6 +23,12 @@ The geopackage file includes a copy of [Network Rail's VectorLinks and VectorNod
 
 `VectorNode`s are found at every point where two different track assets intersect. These can be used to create a graph of track assets, which can be used to calculate routes between points. It's important to make use of these `VectorNode`s rather than only using the polylines otherwise you may calculate routes that jump from a tunnel to a bridge where track passes over each other, for example.
 
+## Changes
+
+Thirteen VectorNodes have been removed from the dataset. These nodes were unconnected to any VectorLines, and were likely remnants of previous tracks in the dataset which were removed. The original GeoPackage is available within the `variants` directory.
+
+**Removed IDs:** `4660, 9334, 14123, 14128, 18978, 18988, 18997, 23817, 28468, 33309, 33310, 38164, 38192`
+
 ## Known issues
 
 - Newark Flat Crossing has `VectorNode`s for where the lines cross, but it's not possible for trains to move between the East Coast Main Line and the Nottingham &mdash; Lincoln line.
