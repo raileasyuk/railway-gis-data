@@ -29,8 +29,9 @@ Thirteen VectorNodes have been removed from the dataset. These nodes were unconn
 
 **Removed IDs:** `4660, 9334, 14123, 14128, 18978, 18988, 18997, 23817, 28468, 33309, 33310, 38164, 38192`
 
-## Known issues
+## Considerations
 
+- Multiple TIPLOCs may be mapped to the exact same position. This may be due to data limitations, or may be intentional. I actually just don't know. 🤷
 - Newark Flat Crossing has `VectorNode`s for where the lines cross, but it's not possible for trains to move between the East Coast Main Line and the Nottingham &mdash; Lincoln line.
   - It may be decided to remove these nodes in the future to prevent inaccurate route calculations. Provided you use TIPLOCs as well, this shouldn't present issues.
 - TIPLOCs may be snapped such that it is impossible to calculate a route from A to B, or doing so requires trains to use the wrong line.
