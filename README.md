@@ -25,7 +25,7 @@ The geopackage file includes a copy of [Network Rail's VectorLinks and VectorNod
 
 ## Changes
 
-Thirteen VectorNodes have been removed from the dataset. These nodes were unconnected to any VectorLines, and were likely remnants of previous tracks in the dataset which were removed. The original GeoPackage is available within the `variants` directory.
+Thirteen `VectorNode`s have been removed from the dataset. These nodes were unconnected to any `VectorLine`s, and were likely remnants of previous tracks in the dataset which were removed. The original GeoPackage is available within the `variants` directory.
 
 **Removed IDs:** `4660, 9334, 14123, 14128, 18978, 18988, 18997, 23817, 28468, 33309, 33310, 38164, 38192`
 
