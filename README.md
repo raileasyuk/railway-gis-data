@@ -8,7 +8,7 @@ This combines GIS data from various sources to create a good enough compilation 
   - [DfT NAPTAN dataset](https://beta-naptan.dft.gov.uk/) - OGL3
   - [RDG Industry Data](https://data.atoc.org/rail-industry-data) - CC BY 2.0 UK
   - [Network Rail TPS, BPLAN and CORPUS Open Data](https://www.networkrail.co.uk/who-we-are/transparency-and-ethics/transparency/open-data-feeds/network-rail-infrastructure-limited-data-feeds-licence) - OGL3
-  - [Woodpecker](https://github.com/anisotropi4/woodpecker/blob/main/LICENSE) - Apache 2.0
+  - [Woodpecker](https://github.com/anisotropi4/woodpecker/blob/main/LICENSE) - CC-BY-SA 4.0
   - [Rail Map](https://railmap.azurewebsites.net/Downloads) - CC-BY-SA 4.0
   - We have manually excluded the data from [UK2GTFS](https://github.com/ITSLeeds/UK2GTFS-data) due to its AGPL-3.0 license
 - [Network Rail geospatial data, licensed under Open Government License](https://github.com/openraildata/network-rail-gis)
@@ -42,5 +42,5 @@ Thirteen `VectorNode`s have been removed from the dataset. These nodes were unco
 
 - OGL3 is [compatible with CC-BY 4.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/#:~:text=These%20terms%20are%20compatible%20with%20the%20Creative%20Commons%20Attribution%20License%204.0)
 - CC BY 2.0 UK is compatible with CC-BY 4.0.
-- [Permission has been requested](https://github.com/anisotropi4/woodpecker/issues/4) to dual-license Woodpecker's data under CC-BY(-SA) or a compatible license.
+- ~~[Permission has been requested](https://github.com/anisotropi4/woodpecker/issues/4) to dual-license Woodpecker's data under CC-BY(-SA) or a compatible license.~~ License for Woodpecker's data [is now under CC-BY-SA 4.0](https://github.com/anisotropi4/woodpecker/issues/4)
 - The AGPL-3.0 data sourced from UK2GTFS has been excluded from YATIPLOCL.
