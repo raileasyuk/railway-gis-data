@@ -16,45 +16,9 @@ This assumes you have QGIS 3, this repository and SAGA 9 configured.
 
 ### Updating TIPLOCs
 
-You should download new TIPLOC reference data, filter it, refresh the data inside QGIS.
+TIPLOC data is originally sourced from the link above, however some TIPLOCs have been manually relocated or removed to allow for better routing across the rail network. Any updates to the source TIPLOC data should be implemented manually, adding only the new TIPLOCs required to the network so as to not affect existing implementations.
 
-#### Automated data processing
-
-A prebuild model is included within the QGIS project file which will automate the processing of the raw geospatial data into a Geopackage ready to be used by other tools.
-
-You can run this model ("Process TIPLOCs and Tracks") from the Processing Toolbox, and it will output a new geopackage file with the filtered and snapped TIPLOCs.
-
-![](./docs/model.png)
-
-#### Manual data processing
-
-Run SAGA's Snap Points To Lines tool, with the following parameters:
-
-![](./docs/snap.png)
-
-TIPLOC nodes will be snapped to the nearest rail geometry within 200 metres. This will create a new layer with the snapped points as well as lines indicating their moves.
-
-![](./docs/snap-result.png)
-
-You should then run SAGA's Split Lines at Points tool, with the following parameters:
-
-![](./docs/split-lines.png)
-
-You can then export the snapped TIPLOCs and split lines to a new geopackage file using the Package layers tool.
-
-Ensure the layers are named 'tiplocs' and 'tracks' respectively.
-
-![](./docs/package.png)
-
-```
-Feature creation error (OGR error: failed to execute insert : UNIQUE constraint failed: tracks.fid)
-```
-
-If you encounter errors relating to duplicate FIDs, you should open the affected layer's attribute table, then open the field calculator.
-
-Use the calculator to update the fid column with the `@id` variable, which will assign a unique FID to each feature in the layer. Ensure you save your edits after this, and then re-run the Package layers tool.
-
-![](./docs/fid.png)
+You can edit the existing TIPLOCs layer within QGIS, using the editing tools to move existing TIPLOCs or add new ones. Create TIPLOCs in an appropriate location, ensuring their nearest track is suitable for the TIPLOC. The automated data processing will automatically snap the TIPLOC to the nearest track during output generation.
 
 ### Updating track data
 
@@ -64,10 +28,16 @@ You can select a layer in the Layers panel, and then click the pencil icon to en
 
 You should also enable snapping (View -> Toolbars -> Snapping Toolbar) to align track to existing lines' vertices to enable pathfinding tools to explore that area.
 
-An example of editing track geometry can be seen in the video below. You can extend a line by hovering over its endpoint and clicking the plus icon, and then clicking to add new vertices. You can also move existing vertices by hovering over them and dragging them to a new location. You can create a new line with a separate 'add line feature' tool, and complete your new line using right click.
+An example of editing track geometry can be seen in the video below. You can extend a line by hovering over its endpoint and clicking the plus icon, and then clicking to add new vertices. You can also move existing vertices by hovering over them and dragging them to a new location. You can create a new line with a separate 'add line feature' tool, and complete your new line using right click. In the dialog that appears, simply press "Ok" to complete the line.
 
 <video src="./docs/edit-demo.mp4" controls></video>
 
-You must ensure that, wherever lines meet each other, their geometries are split. This is to ensure that pathfinding tools can explore the network effectively. You can use the Line intersections tool to create points where lines intersect, and then use the Split Lines at Points tool to split lines at those intersection points.
+### Exporting data for use in other tools
 
-You should follow the steps above to update and snap TIPLOCs to the new track geometry, and then export the updated track geometry and TIPLOCs to a new geopackage file using the Package layers tool.
+A prebuilt model is included within the QGIS project file which will automate the processing of the geospatial data into a Geopackage ready to be used by other tools.
+
+You can run this model, "Process TIPLOCs and Tracks", from the "Project models" section within the "Processing Toolbox", and it will output a new geopackage file at the location specified with the merged dataset ready for use in automated systems.
+
+Select the appropriate layers for each input, and specify the output path for the merged geopackage. This should ordinarily be committed to the repository for ease of use.
+
+![](./docs/model.png)
