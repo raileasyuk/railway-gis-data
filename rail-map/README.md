@@ -8,8 +8,6 @@ SimplifiedTracks.gpkg represents the original engineering line refernce centreli
 
 TIPLOC data is sourced from [GB Railway Data Ltd](https://railmap.azurewebsites.net/Downloads) licensed under CC-BY-SA 4.0.
 
-TIPLOC data is filtered to only relevant railway locations for train services, and then snapped to the simplified railway geometry.
-
 ## Runbook
 
 This assumes you have QGIS 3, this repository and SAGA 9 configured.
