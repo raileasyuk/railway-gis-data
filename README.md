@@ -8,7 +8,7 @@ Import the geopackage (`rail-map/merged.gpkg`) into your favourite GIS software 
 
 ## Data sources
 
-- [Network Rail geospatial data, licensed under Open Government License](https://github.com/openraildata/network-rail-gis)
+- [Railway Reference Lines from Network Rail's geospatial open data, licensed under Open Government License 3](https://raildata.org.uk/dashboard/dataProduct/P-9b4e960e-8bb6-438b-9722-34ae5768a48f/overview), with track geometry updated and connected together as appropriate.
 - TIPLOC geospatial information from [GB Railway Data Ltd, licensed under CC-BY-SA 4.0](https://railmap.azurewebsites.net/Downloads), with some locations manually moved or removed.
 
 ## Documentation
