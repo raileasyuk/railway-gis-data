@@ -1,0 +1,37 @@
+name: Update CORPUS data
+on:
+  schedule:
+    - cron: '0 6 1 * *'
+  workflow_dispatch: # Allows manual triggering of the workflow
+
+permissions:
+  contents: write
+
+jobs:
+  update-corpus:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Download latest CORPUS data
+        working-directory: source
+        env:
+          NROD_USERNAME: ${{ secrets.NROD_USERNAME }}
+          NROD_PASSWORD: ${{ secrets.NROD_PASSWORD }}
+        run: |
+          curl -L -u "$NROD_USERNAME:$NROD_PASSWORD" -o 'corpus.json.gz' 'https://publicdatafeeds.networkrail.co.uk/ntrod/SupportingFileAuthenticate?type=CORPUS'
+
+      - name: Decompress the downloaded file
+        working-directory: source
+        run: |
+          gunzip -f corpus.json.gz
+
+      - name: Commit and push changes
+        working-directory: source
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add corpus.json
+          git commit -m 'chore: update corpus data extract' || echo "No changes to commit"
+          git push origin HEAD:main
