@@ -12,6 +12,8 @@ TIPLOC data is sourced from [GB Railway Data Ltd](https://railmap.azurewebsites.
 
 This assumes you have QGIS 3, this repository and SAGA 9 configured.
 
+As of writing, the SAGA processing plugin is no longer available in the QGIS plugin repository. A .zip of the plugin is included within this repository, with its own license. You can install this within QGIS manually.
+
 ### Updating TIPLOCs
 
 TIPLOC data is originally sourced from the link above, however some TIPLOCs have been manually relocated or removed to allow for better routing across the rail network. Any updates to the source TIPLOC data should be implemented manually, adding only the new TIPLOCs required to the network so as to not affect existing implementations.
